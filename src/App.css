@@ -1,0 +1,139 @@
+/* src/App.css */
+
+/* Header styling for title and instructions */
+.app-header {
+    text-align: center;
+    padding: 20px;
+}
+
+    .app-header h1 {
+        font-size: 2em;
+        color: #333;
+        margin: 0;
+    }
+
+    .app-header p {
+        font-size: 1em;
+        color: #666;
+    }
+
+/* Container for the entire piano */
+.piano {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    background-color: #f2f2f2;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    flex-wrap: wrap;
+}
+
+/* White keys with a subtle gradient */
+.piano-key {
+    width: 60px;
+    height: 180px;
+    margin: 2px;
+    background: linear-gradient(to bottom, #ffffff, #e0e0e0);
+    border: 1px solid #aaa;
+    border-radius: 5px 5px 10px 10px;
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.1s, box-shadow 0.1s, transform 0.1s;
+}
+
+    /* Black keys with a glossy effect */
+    .piano-key.black {
+        width: 40px;
+        height: 120px;
+        margin-left: -20px;
+        margin-right: -20px;
+        background: linear-gradient(to bottom, #333, #111);
+        color: #ffffff;
+        z-index: 1;
+        border-radius: 5px 5px 10px 10px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Hover effect for white keys */
+    .piano-key:hover {
+        background: linear-gradient(to bottom, #f5f5f5, #dcdcdc);
+    }
+
+    .piano-key.black:hover {
+        background: linear-gradient(to bottom, #444, #222);
+    }
+
+    /* Active effect for white keys */
+    .piano-key:active {
+        background: linear-gradient(to bottom, #d1d1d1, #c0c0c0);
+        transform: translateY(2px);
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Active effect for black keys */
+    .piano-key.black:active {
+        background: linear-gradient(to bottom, #333, #222);
+        transform: translateY(2px);
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4);
+    }
+
+    /* Add a border or glow effect when a key is pressed */
+    .piano-key.pressed {
+        border: 2px solid #ffce00;
+        box-shadow: 0px 0px 10px rgba(255, 206, 0, 0.5);
+    }
+
+/* Volume control styling */
+.volume-control {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 20px;
+    font-size: 1em;
+    color: #444;
+}
+
+    .volume-control input[type="range"] {
+        width: 150px;
+        -webkit-appearance: none;
+        height: 8px;
+        background: #ddd;
+        border-radius: 5px;
+    }
+
+        .volume-control input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 16px;
+            height: 16px;
+            background: #444;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+.piano-key.pressed {
+    animation: keyPressEffect 0.2s ease-out; /* Add a quick animation for pressing effect */
+    border: 2px solid #ffce00;
+    box-shadow: 0px 0px 10px rgba(255, 206, 0, 0.8), 0px 0px 20px rgba(255, 206, 0, 0.5);
+}
+
+/* Key press animation */
+@keyframes keyPressEffect {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    50% {
+        transform: translateY(2px); /* Key moves down slightly */
+        opacity: 0.9;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+/* Remove the default focus outline for piano keys */
+.piano-key:focus {
+    outline: none;
+}
